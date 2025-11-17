@@ -1,0 +1,260 @@
+/* areee vidhiiii */
+.hero-section {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--gold);
+  font-family: "Cinzel", serif;
+  padding-top: var(--nav-h);
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.75) 100%),
+    url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=2400&auto=format&fit=crop") center/cover no-repeat;
+  transform: scale(1.02);
+  will-change: filter, transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.68);
+}
+
+.landing-content {
+  text-align: center;
+  z-index: 2;
+  max-width: 960px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+/* Hero logo; scroll timeline drives reveal */
+.hero-logo { width: clamp(84px, 14vw, 140px); height: auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,0.35)); }
+.hero-reveal { opacity: 1; }
+.cta-group { opacity: 1; }
+
+/* Improve text readability on photo */
+.hero-headline {
+  color: #fff;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+  margin-bottom: 0.75rem;
+}
+
+.hero-reveal { margin-top: 0.35rem; }
+.reveal-kicker {
+  display: block;
+  color: color-mix(in oklab, #fff 85%, var(--gold));
+  opacity: 0.9;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+.reveal-title {
+  color: #fff;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  letter-spacing: 0.12em;
+  text-shadow: 0 3px 22px rgba(0,0,0,0.6);
+  margin-top: 0.25rem;
+}
+
+.landing-title {
+  font-size: 4rem;
+  text-shadow: 0 0 25px rgba(188, 171, 121, 0.5);
+  letter-spacing: 5px;
+}
+
+.landing-subtitle {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-family: "EB Garamond", serif;
+  color: var(--accent);
+}
+
+.register-btn {
+  margin-top: 2rem;
+  background-color: transparent;
+  border: 2px solid var(--gold);
+  padding: 0.8rem 2rem;
+  color: var(--gold);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background-color: var(--gold);
+  color: #353a47;
+  box-shadow: 0 0 20px var(--accent);
+}
+
+/* CTA group and buttons used by Landing.jsx */
+.cta-group {
+  margin-top: 2rem;
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.cta-primary,
+.cta-secondary {
+  font-family: "Cinzel", serif;
+  padding: 0.9rem 1.6rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.6px;
+  border-radius: 999px;
+  border: 2px solid var(--gold);
+  transition: transform 180ms ease, box-shadow 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.cta-primary {
+  background: linear-gradient(90deg, var(--gold) 0%, #e5d59a 100%);
+  color: #25262b;
+  box-shadow: 0 8px 24px rgba(188, 171, 121, 0.35);
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(188, 171, 121, 0.45);
+}
+
+.cta-secondary {
+  background: transparent;
+  color: var(--gold);
+}
+
+.cta-secondary:hover {
+  background: rgba(188, 171, 121, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Features section */
+.features-section {
+  background: var(--bg-elev);
+  color: var(--fg);
+}
+
+.features-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.feature-card {
+  background: linear-gradient(180deg, rgba(36, 38, 45, 0.9) 0%, rgba(23, 25, 31, 0.9) 100%);
+  border: 1px solid color-mix(in oklab, var(--gold) 25%, transparent);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.feature-title {
+  font-family: "Cinzel", serif;
+  color: var(--fg);
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.feature-text {
+  font-family: "EB Garamond", serif;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Suites section */
+.suites-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 4rem 1.25rem;
+}
+
+.suites-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  /* border-radius: 18px; */
+  /* background: 
+    linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.25)),
+    url("https://images.unsplash.com/photo-1506012787146-f92b2f0fbf23?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat; */
+  /* border: 1px solid color-mix(in oklab, var(--gold) 25%, transparent);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35); */
+}
+
+.suites-title { font-size: 2rem; letter-spacing: 0.5px; }
+.suites-text { font-family: "EB Garamond", serif; color: var(--muted); }
+
+/* Experiences teaser */
+.experiences-section { background: var(--bg); }
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  padding: 3rem 0 4rem;
+}
+
+.experience-card {
+  background: linear-gradient(180deg, rgba(36, 38, 45, 0.9) 0%, rgba(23, 25, 31, 0.9) 100%);
+  border: 1px solid color-mix(in oklab, var(--gold) 25%, transparent);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.experience-media {
+  height: 180px;
+  background: url("https://images.unsplash.com/photo-1526481280698-8fcc13fd71e0?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.experience-body { padding: 1rem 1rem 1.25rem; }
+.experience-tag { font-size: 0.8rem; color: var(--gold); opacity: 0.85; }
+.experience-title { margin: 0.35rem 0 0; font-family: "Cinzel", serif; }
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .landing-title { font-size: 3.2rem; }
+  .landing-subtitle { font-size: 1.25rem; }
+  .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .suites-section { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .landing-title { font-size: 2.4rem; letter-spacing: 3px; }
+  .landing-subtitle { font-size: 1.05rem; }
+  .cta-group { flex-direction: column; width: 100%; justify-content: center; align-items: center; }
+  .cta-primary, .cta-secondary { width: 100%; }
+  .features-grid { grid-template-columns: 1fr; padding: 3rem 1rem; }
+  .experiences-grid { grid-template-columns: 1fr; }
+}
+
+/* Subtle animated overlay accent */
+.overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 40% at 50% 60%, rgba(209, 17, 73, 0.18) 0%, rgba(0,0,0,0) 60%);
+  pointer-events: none;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.85; }
+}

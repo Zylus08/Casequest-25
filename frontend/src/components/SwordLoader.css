@@ -1,0 +1,176 @@
+/* Fullscreen loader container */
+.sword-loader-root {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at top, #1d2027 0%, #050608 55%, #000 100%);
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Background wipe */
+.sword-loader-wipe {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 10, 18, 0.96);
+  transform-origin: center;
+  z-index: 1;
+  animation: sword-wipe 3.8s ease-in-out forwards;
+}
+
+/* Sword base styling */
+.sword-loader-sword {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 850px;
+  transform: translate(-50%, -50%);
+  filter:
+    drop-shadow(0 0 26px rgba(255, 215, 120, 0.6))
+    drop-shadow(0 0 7px rgba(255, 255, 255, 0.5));
+  z-index: 3;
+}
+
+.sword-loader-sword img {
+  height: 100%;
+  display: block;
+}
+
+/* Attach keyframes */
+.sword-loader-left {
+  animation: sword-left 3.8s ease-in-out forwards;
+}
+
+.sword-loader-right {
+  animation: sword-right 3.8s ease-in-out forwards;
+}
+
+/* Title text */
+.sword-loader-title {
+  position: absolute;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.9rem;
+  color: #f5f5f5;
+  opacity: 0;
+  z-index: 4;
+  animation: sword-title 3.8s ease-out forwards;
+}
+
+.sword-loader-title span {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  opacity: 0.8;
+}
+
+/* Wipe animation: starts full, closes in with swords, reveals About page as it opens back */
+@keyframes sword-wipe {
+  0% {
+    transform: scaleX(1);       /* full dark screen */
+    opacity: 1;
+  }
+  25% {
+    transform: scaleX(0.6);     /* narrowing with swords approaching */
+    opacity: 1;
+  }
+  45% {
+    transform: scaleX(0);    /* tight band at clink */
+    opacity: 1;
+  }
+  65% {
+    transform: scaleX(0);    /* still tight during crossed swords */
+    opacity: 1;
+  }
+  85% {
+    transform: scaleX(0.7);     /* begins to open as swords retreat */
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0);       /* fully open, revealing About page */
+    opacity: 0;                 /* fade out to show the content cleanly */
+  }
+}
+
+/* Left sword: offscreen left -> center, rotate into X, then back out */
+@keyframes sword-left {
+  0% {
+    transform: translate(-260%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  /* arrive near center, still straight */
+  40% {
+    transform: translate(-55%, -50%) rotate(0deg);
+    opacity: 1;
+  }
+  /* rotate into clash angle */
+  50% {
+    transform: translate(-55%, -50%) rotate(25deg);
+    opacity: 1;
+  }
+  /* hold crossed briefly */
+  58% {
+    transform: translate(-55%, -50%) rotate(25deg);
+    opacity: 1;
+  }
+  /* leave back to the left */
+  100% {
+    transform: translate(-260%, -50%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* Right sword: mirrored motion, crosses with left */
+@keyframes sword-right {
+  0% {
+    transform: translate(260%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  /* arrive near center, still straight */
+  40% {
+    transform: translate(-45%, -50%) rotate(0deg);
+    opacity: 1;
+  }
+  /* rotate into clash angle (opposite direction) */
+  50% {
+    transform: translate(-45%, -50%) rotate(-25deg);
+    opacity: 1;
+  }
+  /* hold crossed briefly */
+  58% {
+    transform: translate(-45%, -50%) rotate(-25deg);
+    opacity: 1;
+  }
+  /* leave back to the right */
+  100% {
+    transform: translate(260%, -50%) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+/* Title timing */
+@keyframes sword-title {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+  }
+}

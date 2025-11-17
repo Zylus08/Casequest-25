@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Medieval+Sharp&display=swap');
+
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: initial;
+}
+
+:root {
+  --font-ui: 'MedievalSharp', cursive;
+  /* Palette per spec */
+  --bg: #353A47;          /* charcoal base */
+  --bg-elev: #2b303a;     /* elevated panels */
+  --fg: #e9e4d2;          /* light text */
+  --muted: #848FA5;       /* silver-grey */
+  --gold: #BCAB79;        /* gold */
+  --accent: #D11149;      /* crimson */
+  --deep-red: #931F1D;    /* deep red */
+  --nav-h: 68px;          /* navbar height */
+  --bp-lg: 1200px;
+  --bp-md: 900px;
+  --bp-sm: 560px;
+  /* Background texture (place your image at /images/bg-texture.jpg or change path) */
+  --bg-texture: url('/images/bg-texture.jpg');
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
+  font-family: var(--font-ui) !important;
+}
+
+/* Apply the UI font everywhere */
+*, *::before, *::after { font-family: var(--font-ui) !important; }
+button, input, select, textarea { font: inherit !important; }
+
+/* Base typography for consistency */
+h1, h2, h3, h4 {
+  color: var(--fg);
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.5rem 0;
+}
+
+p, li {
+  color: var(--muted);
+  line-height: 1.7;
+  font-family: inherit;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+@media (max-width: 1200px){
+  h1 { font-size: clamp(1.8rem, 4.2vw, 3rem); }
+  h2 { font-size: clamp(1.4rem, 3.2vw, 2.2rem); }
+  h3 { font-size: clamp(1.1rem, 2.6vw, 1.6rem); }
+}
+
+@media (max-width: 900px){
+  .container { padding: 0 1rem; }
+}
+
+@media (max-width: 560px){
+  .container { width: 96%; padding: 0 0.75rem; }
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Gallery heading before GallerySection */
+.gallery-intro { padding: 1.25rem 0 0.25rem; text-align: center; }
+.gallery-title { margin: 0; font-size: clamp(1.6rem, 4.2vw, 2.4rem); color: var(--gold); letter-spacing: 0.5px; }
+.gallery-sub { margin: 0.25rem 0 0; color: var(--muted); opacity: 0.9; }
+
+/* Subtle golden glow */
+.glow-gold {
+  text-shadow:
+    0 0 6px rgba(188,171,121,0.35),
+    0 0 14px rgba(188,171,121,0.25),
+    0 0 28px rgba(188,171,121,0.18);
+}

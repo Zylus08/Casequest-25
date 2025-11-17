@@ -1,0 +1,215 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=MedievalSharp&display=swap');
+
+/* Colors */
+:root {
+  /* Palette per requirements */
+  --got-gold: #BCAB79;           /* Gold */
+  --got-gold-soft: #b39f6a;      /* Softer gold accent */
+  --got-charcoal: #353A47;       /* Base background */
+  --got-silver: #848FA5;         /* Silver-grey */
+  --got-deep-red: #931F1D;       /* Deep red */
+  --got-crimson: #D11149;        /* Crimson */
+
+  /* Text tones */
+  --got-ink: #e8e1d3;            /* Light parchment ink */
+  --got-ink-dim: #cfc7b6;        /* Dimmed ink */
+
+  /* Shadows */
+  --got-shadow: rgba(0,0,0,0.6);
+  --got-shadow-deep: rgba(0,0,0,0.8);
+}
+
+/* Container with cinematic overlay */
+.rulebook-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 64px 6vw;
+  box-sizing: border-box;
+  color: var(--got-ink);
+  background-color: var(--got-charcoal); /* Base charcoal background */
+  background-size: cover; /* background image is set inline from JSX */
+  background-position: center;
+  font-family: 'MedievalSharp', cursive; /* Body font */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rulebook-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.85) 100%);
+  pointer-events: none;
+}
+
+/* Content panel */
+.rulebook-content {
+  position: relative;
+  width: min(1100px, 100%);
+  padding: 40px clamp(20px, 4vw, 56px);
+  background: linear-gradient(180deg, rgba(22,22,22,0.6), rgba(10,10,10,0.6)) padding-box,
+              radial-gradient(120% 160% at 50% 0%, rgba(188,171,121,0.25), rgba(0,0,0,0)) border-box;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 60px rgba(0,0,0,0.2);
+  backdrop-filter: blur(2px) saturate(110%);
+}
+
+.rulebook-content::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(188,171,121,0.35);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-family: 'Cinzel', 'Times New Roman', serif; /* Heading font */
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  letter-spacing: 0.18em;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+  color: var(--got-gold);
+  text-shadow:
+    0 2px 0 rgba(0,0,0,0.6), /* subtle embossed depth */
+    0 8px 22px rgba(0,0,0,0.45), /* background falloff */
+    0 0 8px rgba(188,171,121,0.45), /* soft inner glow */
+    0 0 22px rgba(188,171,121,0.35), /* outer glow */
+    0 0 40px rgba(188,171,121,0.20); /* extended halo */
+}
+
+.title .crest {
+  display: inline-block;
+  margin: 0 10px;
+  color: var(--got-gold);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-family: 'EB Garamond', 'Times New Roman', serif; /* Subheading font */
+  color: var(--got-silver);
+  margin-bottom: 26px;
+  letter-spacing: 0.12em;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(188,171,121,0.55), transparent);
+  margin: 20px 0 28px;
+}
+
+/* Rules */
+.rules {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--got-ink);
+}
+
+.rules p {
+  margin: 10px 0 12px;
+}
+
+/* Accented rule numbers */
+.rules p > strong {
+  color: var(--got-crimson);
+  font-weight: 700;
+}
+
+.rules ul {
+  margin: 6px 0 18px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.rules li {
+  position: relative;
+  padding-left: 32px;
+  margin: 6px 0;
+}
+
+.rules li::before {
+  content: "⚔︎";
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  color: var(--got-gold);
+  filter: drop-shadow(0 0 4px rgba(188,171,121,0.35));
+}
+
+/* Scroll panel for long texts */
+.scroll-panel {
+  max-height: min(60vh, 900px);
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.scroll-panel::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll-panel::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+.scroll-panel::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(188,171,121,0.85), rgba(179,159,106,0.85));
+  border-radius: 10px;
+}
+
+/* Subtle entrance animation */
+@keyframes riseFade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.rulebook-content { animation: riseFade 600ms ease-out both; }
+
+/* Responsiveness */
+@media (max-width: 640px) {
+  .rulebook-container { padding: 40px 4vw; }
+  .rules { font-size: 1rem; }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .rulebook-container { padding: 56px 5vw; }
+  .rulebook-content { width: min(900px, 100%); }
+  .title { letter-spacing: 0.14em; }
+}
+
+/* Phablet/Mobile adjustments */
+@media (max-width: 768px) {
+  .rulebook-container { padding: 48px 4vw; }
+  .rulebook-content { padding: 28px clamp(16px, 5vw, 32px); border-radius: 10px; }
+  .title { font-size: clamp(1.8rem, 6vw, 2.4rem); letter-spacing: 0.1em; }
+  .subtitle { font-size: clamp(0.9rem, 2.4vw, 1rem); }
+  .rules { font-size: 0.98rem; }
+  .rules li { padding-left: 28px; }
+  .rules li::before { top: 0.1rem; }
+  .scroll-panel { max-height: 65vh; }
+  .scroll-panel::-webkit-scrollbar { width: 8px; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .rulebook-container { padding: 32px 3vw; padding-left: calc(3vw + env(safe-area-inset-left)); padding-right: calc(3vw + env(safe-area-inset-right)); padding-top: calc(32px + env(safe-area-inset-top)); padding-bottom: calc(32px + env(safe-area-inset-bottom)); }
+  .rulebook-content { padding: 22px 16px; border-radius: 8px; box-shadow: 0 14px 36px rgba(0,0,0,0.55), inset 0 0 36px rgba(0,0,0,0.18); }
+  .title { font-size: 1.6rem; letter-spacing: 0.08em; }
+  .subtitle { font-size: 0.9rem; }
+  .rules { font-size: 0.95rem; }
+  .scroll-panel { max-height: 62vh; }
+  .scroll-panel::-webkit-scrollbar { width: 6px; }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1600px) {
+  .rulebook-container { padding: 72px 8vw; }
+  .rulebook-content { width: min(1200px, 100%); }
+}

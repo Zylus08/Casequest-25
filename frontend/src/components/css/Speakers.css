@@ -1,0 +1,15 @@
+/* Speakers */
+.speakers-section { padding: 2rem 1rem 2.5rem; background: var(--bg); background-image: var(--bg-texture); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.speakers-title { margin: 0 0 0.75rem; text-align: center; color: var(--gold); font-size: clamp(1.6rem, 4.2vw, 2.4rem); text-shadow: 0 0 6px rgba(188,171,121,0.35), 0 0 14px rgba(188,171,121,0.25), 0 0 28px rgba(188,171,121,0.18); }
+.speakers-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.speaker-card { background: var(--bg-elev); border-radius: 14px; border: 1px solid color-mix(in oklab, var(--gold) 20%, transparent); overflow: hidden; transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; will-change: transform; }
+.speaker-card img { width: 100%; height: 180px; object-fit: cover; display:block; transition: transform 220ms ease; }
+.speaker-body { padding: 0.9rem 1rem 1.2rem; }
+.speaker-body h3 { margin: 0 0 0.25rem; font-family: 'Cinzel', serif; }
+.speaker-body p { margin: 0; font-family: 'EB Garamond', serif; color: var(--muted); }
+
+/* Hover zoom + glow */
+.speaker-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 14px 34px rgba(0,0,0,0.35), 0 0 0 2px color-mix(in oklab, var(--gold) 45%, transparent) inset, 0 0 22px rgba(188,171,121,0.22); border-color: color-mix(in oklab, var(--gold) 55%, transparent); }
+.speaker-card:hover img { transform: scale(1.06); }
+@media (max-width: 1024px){ .speakers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px){ .speakers-grid { grid-template-columns: 1fr; } }

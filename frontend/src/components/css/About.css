@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Medieval+Sharp&family=EB+Garamond:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Medieval Sharp', serif;
+}
+
+.bg-hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.pinimg.com/736x/69/ad/e5/69ade5af9e44e6d4ae13.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(2px) brightness(0.35) contrast(1.15);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(10, 15, 20, 0.85) 0%, rgba(15, 20, 25, 0.95) 100%);
+  z-index: 1;
+}
+
+/* Cloud animation */
+@keyframes float {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(100vw) translateY(-20px); }
+  50% { transform: translateX(100vw) translateY(20px); }
+  75% { transform: translateX(50vw) translateY(-10px); }
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(188, 171, 121, 0.05);
+  border-radius: 100px;
+  filter: blur(40px);
+  animation: float 60s infinite ease-in-out;
+  opacity: 0.3;
+}
+
+.cloud1 { width: 300px; height: 150px; top: 10%; left: -150px; animation-delay: 0s; }
+.cloud2 { width: 400px; height: 200px; top: 40%; right: -200px; animation-delay: 20s; }
+.cloud3 { width: 250px; height: 120px; top: 70%; left: -100px; animation-delay: 40s; }
+
+.heading { font-family: 'Cinzel', serif; }
+.subheading { font-family: 'EB Garamond', serif; }
+.normal-text { font-family: 'Medieval Sharp', serif; }
+
+.cards { display: flex; flex-direction: column; gap: 15px; }
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  min-height: 200px;
+  width: 280px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+  padding: 20px;
+}
+
+.cards .card:hover {
+  transform: scale(1.1);
+}
+
+.cards:hover .card:not(:hover) {
+  filter: blur(3px);
+  transform: scale(0.95);
+}
+
+.section h2 {
+  text-shadow: 0 0 20px rgba(179, 163, 117, 0.5),
+               0 0 40px rgba(179, 163, 117, 0.3);
+}
+
+.dragon-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #BCAB79, transparent);
+  margin: 3rem 0;
+}

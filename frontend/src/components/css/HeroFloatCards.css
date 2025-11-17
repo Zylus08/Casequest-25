@@ -1,0 +1,45 @@
+
+.hero-float-cards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* allow text/links under except cards */
+  perspective: 1000px;
+  z-index: 1; /* keep cards below the hero text (landing-content has z-index:2) */
+}
+
+.hfc-card {
+  position: absolute;
+  width: clamp(220px, 24vw, 360px);
+  aspect-ratio: 4/3;
+  background: center/cover no-repeat;
+  border-radius: 14px;
+  box-shadow: 0 28px 60px rgba(0,0,0,0.45);
+  border: 1px solid color-mix(in oklab, var(--gold) 18%, transparent);
+  filter: saturate(1.02);
+  pointer-events: auto; /* to capture hover for tilt */
+  transition: box-shadow 220ms ease, transform 220ms ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* default placements */
+.hfc-left { left: max(6vw, 48px); top: 16vh; transform: rotate(-2.5deg); }
+.hfc-right { right: max(6vw, 48px); top: 10vh; transform: rotate(2.5deg); }
+.hfc-bottom { left: 50%; bottom: 8vh; transform: translateX(-50%) rotate(0.8deg); width: clamp(240px, 28vw, 460px); }
+
+.hfc-card:hover {
+  box-shadow: 0 36px 80px rgba(0,0,0,0.55);
+  transform: translateY(-6px) scale(1.02);
+}
+
+@media (max-width: 900px){
+  .hfc-left { top: 22vh; left: 5vw; }
+  .hfc-right { top: 14vh; right: 5vw; }
+  .hfc-bottom { bottom: 5vh; }
+}
+
+@media (max-width: 640px){
+  .hfc-left { display: none; }
+  .hfc-right { width: clamp(220px, 62vw, 420px); left: 50%; right: auto; transform: translateX(-50%) rotate(2deg); }
+  .hfc-bottom { display: none; }
+}

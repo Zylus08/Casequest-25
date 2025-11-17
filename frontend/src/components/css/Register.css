@@ -1,0 +1,5 @@
+/* Register */
+.register-page { padding: 3rem 1.25rem 4rem; text-align:center; }
+.register-page h1 { font-family: 'Cinzel', serif; }
+.register-page p { max-width: 680px; margin: 0.5rem auto 1.25rem; color: var(--muted); font-family: 'EB Garamond', serif; }
+.register-btn-lg { display:inline-block; padding: 0.9rem 1.6rem; border-radius: 999px; border:2px solid var(--gold); color: var(--bg); background: linear-gradient(90deg, var(--gold), #e5d59a); box-shadow: 0 8px 24px rgba(188,171,121,0.35); }

@@ -1,0 +1,152 @@
+.footer {
+  background: url(images/bg1.png) center/cover fixed no-repeat;
+  /* color: #848fa5; */
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-family: 'EB Garamond', serif;
+  border-top: 1px solid #bcab79;
+  position: relative;
+  z-index: 4000; 
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(4px);      /* ✅ Soft blur */
+  background: rgba(0, 0, 0, 0.35); /* ✅ Light dark overlay for contrast */
+  z-index: -1;                     /* ✅ Keeps it behind the text */
+}
+
+/* Layout */
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  text-align: left;
+  padding: 1rem 0 1.5rem;
+}
+
+/* Ensure inner sections stay left-aligned even if .footer is centered */
+.footer-left, .footer-right { text-align: left; }
+
+/* Contact block alignment */
+.contact-block { display: grid; gap: 6px; }
+.contact-line { display: flex; align-items: center; gap: 8px; }
+.contact-line a { color: #e3d7a3; text-decoration: none; }
+.contact-line a:hover { color: #fff; }
+.mini-ico { color: #e3d7a3; opacity: 0.9; }
+.address { margin: 0; color: #d6dbe6; }
+
+.footer-left h3,
+.footer-right h3,
+.footer-brand h3 {
+  color: #e3d7a3; /* light gold */
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Social links */
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.social-links a {
+  color: #d6dbe6;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-links a:hover,
+.contact-list a:hover {
+  color: #bcab79;
+}
+
+/* Contacts */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-list .name {
+  color: #d6dbe6;
+  font-weight: 500;
+}
+
+.contact-list a {
+  color: #9fa8ba;
+  text-decoration: none;
+}
+
+/* Put email and phone on a new line under the name */
+.contact-list .details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.sep { color: #5a6170; margin: 0 0.5rem; }
+
+/* Brand line */
+.footer-brand {
+  text-align: center;
+  border-top: 1px solid rgba(188, 171, 121, 0.35);
+  padding-top: 1rem;
+}
+
+.footer-brand p {
+  margin: 0.25rem 0 0;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  color: #d6dbe6;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .footer { padding: 1rem; }
+
+  .footer-left h3, .footer-right h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+  .contact-list li { display: grid; grid-template-columns: 1fr; row-gap: 4px; }
+  .contact-list .name { font-weight: 600; }
+  .contact-list a { word-break: break-word; }
+  .sep { display: none; }
+}
+
+@media (max-width: 420px){
+  .footer { padding: 0.9rem 0.75rem; }
+  .social-links { gap: 0.3rem; }
+}
